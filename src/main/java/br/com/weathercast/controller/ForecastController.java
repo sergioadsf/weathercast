@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +23,15 @@ public class ForecastController {
 	@ResponseBody
 	@GetMapping(path = "/test")
 	public Forecast getNome() throws JsonParseException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
+		Forecast clima = mapper.readValue(asStream, Forecast.class);
+		return clima;
+	}
+
+	@ResponseBody
+	@PostMapping(path = "/test/{id}")
+	public Forecast add(@PathVariable long id) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
 		Forecast clima = mapper.readValue(asStream, Forecast.class);

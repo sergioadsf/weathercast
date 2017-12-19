@@ -1,4 +1,4 @@
-package br.com.weathercast;
+package br.com.weathercast.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

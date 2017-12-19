@@ -14,18 +14,22 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.weathercast.ForecastType;
+import br.com.weathercast.WUrl;
 import br.com.weathercast.dto.Forecast;
 
 @RestController
 @RequestMapping("forecast")
-public class ForecastController {
-
+public class ForecastController extends WeatherController {
+	
 	@ResponseBody
 	@GetMapping(path = "/test")
 	public Forecast getNome() throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
 		Forecast clima = mapper.readValue(asStream, Forecast.class);
+		System.out.println(WUrl.start(ForecastType.CURRENT, config.getUrl(), config.getApiKey()).get());
+		System.out.println(WUrl.start(ForecastType.FORECAST, config.getUrl(), config.getApiKey()).get());
 		return clima;
 	}
 

@@ -34,6 +34,16 @@ public class ForecastController extends WeatherController {
 	}
 
 	@ResponseBody
+	@GetMapping(path = "/cidade/{nome}")
+	public Forecast cidade(@PathVariable("nome") String nomeCidade) throws JsonParseException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
+		Forecast clima = mapper.readValue(asStream, Forecast.class);
+		System.out.println(WUrl.start(ForecastType.FORECAST, config.getUrl(), config.getApiKey()).cidade(nomeCidade).get());
+		return clima;
+	}
+
+	@ResponseBody
 	@PostMapping(path = "/test/{id}")
 	public Forecast add(@PathVariable long id) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();

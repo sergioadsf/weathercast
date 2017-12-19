@@ -19,6 +19,11 @@ public class WUrl extends WeatherParams {
 			query.append(ID);
 			query.append(API_KEY).append(token);
 		}
+		
+		public WQuery cidade(String nome) {
+			query.append(Q).append(nome);
+			return this;
+		}
 
 		public String get() {
 			return query.toString();

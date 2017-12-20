@@ -1,5 +1,7 @@
 package br.com.weathercast.dto;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,6 +17,9 @@ public class City implements DTO {
 
 	@JsonProperty("country")
 	private String country;
+
+	@JsonProperty("population")
+	private BigDecimal population;
 
 	@JsonProperty("coord")
 	private Coordinates coordinate;

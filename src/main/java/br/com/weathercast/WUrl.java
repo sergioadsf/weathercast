@@ -25,8 +25,8 @@ public class WUrl extends WeatherParams {
 			return this;
 		}
 
-		public String get() {
-			return query.toString();
+		public String search() throws Exception {
+			return HttpSearch.executeGet(query.toString());
 		}
 
 	}

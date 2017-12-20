@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @SuppressWarnings("serial")
-@JsonIgnoreProperties({ "clouds", "rain", "sys" })
+@JsonIgnoreProperties({ "clouds", "rain", "sys", "snow" })
 public class ForecastDetail implements DTO {
 
 	@JsonProperty("dt")

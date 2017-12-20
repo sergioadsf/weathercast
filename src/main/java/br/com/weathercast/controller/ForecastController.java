@@ -21,26 +21,31 @@ import br.com.weathercast.dto.Forecast;
 @RestController
 @RequestMapping("forecast")
 public class ForecastController extends WeatherController {
-	
+
 	@ResponseBody
 	@GetMapping(path = "/test")
 	public Forecast getNome() throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
 		Forecast clima = mapper.readValue(asStream, Forecast.class);
-		System.out.println(WUrl.start(ForecastType.CURRENT, config.getUrl(), config.getApiKey()).get());
-		System.out.println(WUrl.start(ForecastType.FORECAST, config.getUrl(), config.getApiKey()).get());
 		return clima;
 	}
 
 	@ResponseBody
 	@GetMapping(path = "/cidade/{nome}")
-	public Forecast cidade(@PathVariable("nome") String nomeCidade) throws JsonParseException, JsonMappingException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
-		Forecast clima = mapper.readValue(asStream, Forecast.class);
-		System.out.println(WUrl.start(ForecastType.FORECAST, config.getUrl(), config.getApiKey()).cidade(nomeCidade).get());
-		return clima;
+	public Forecast cidade(@PathVariable("nome") String nomeCidade)
+			throws JsonParseException, JsonMappingException, IOException {
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+//			InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
+			String json = WUrl.start(ForecastType.FORECAST, config.getUrl(), config.getApiKey()).cidade(nomeCidade).search();
+			Forecast clima = mapper.readValue(json, Forecast.class);
+			return clima;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	@ResponseBody

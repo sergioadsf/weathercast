@@ -23,43 +23,5 @@ dist/
 nbdist/
 .nb-gradle/
 
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-src/main/resources/static/dist
-src/main/resources/static/tmp
-
-# dependencies
-src/main/resources/static/node_modules
-
-# IDEs and editors
-src/main/resources/static/.idea
-src/main/resources/static/.project
-src/main/resources/static/.classpath
-src/main/resources/static/.c9/
-src/main/resources/static/*.launch
-src/main/resources/static/.settings/
-
-# IDE - VSCode
-src/main/resources/static/.vscode/*
-src/main/resources/static/!.vscode/settings.json
-src/main/resources/static/!.vscode/tasks.json
-src/main/resources/static/!.vscode/launch.json
-src/main/resources/static/!.vscode/extensions.json
-
-# misc
-src/main/resources/static/.sass-cache
-src/main/resources/static/connect.lock
-src/main/resources/static/coverage/*
-src/main/resources/static/libpeerconnection.log
-src/main/resources/static/npm-debug.log
-src/main/resources/static/testem.log
-src/main/resources/static/typings
-
-# e2e
-src/main/resources/static/e2e/*.js
-src/main/resources/static/e2e/*.map
-
-#System Files
-src/main/resources/static/.DS_Store
-src/main/resources/static/Thumbs.db
+/node_modules
+/src/main/resources/static/built/*.js

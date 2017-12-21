@@ -1,4 +1,7 @@
-package br.com.weathercast;
+package br.com.weathercast.service;
+
+import br.com.weathercast.ForecastType;
+import br.com.weathercast.WeatherParams;
 
 public class WUrl extends WeatherParams {
 
@@ -18,10 +21,16 @@ public class WUrl extends WeatherParams {
 			query.append(type.getType());
 			query.append(ID);
 			query.append(API_KEY).append(token);
+			query.append(LANG).append("pt");
 		}
-		
+
 		public WQuery cidade(String nome) {
-			query.append(Q).append(nome);
+			query.append(Q).append(nome).append(",br");
+			return this;
+		}
+
+		public WQuery dias(int dias) {
+			query.append(CNT).append(dias);
 			return this;
 		}
 

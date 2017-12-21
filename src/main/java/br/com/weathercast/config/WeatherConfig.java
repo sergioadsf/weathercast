@@ -10,7 +10,7 @@ public class WeatherConfig {
 	private String url;
 
 	@Value("${api.key}")
-	public String apiKey;
+	private String apiKey;
 
 	public String getApiKey() {
 		return apiKey;

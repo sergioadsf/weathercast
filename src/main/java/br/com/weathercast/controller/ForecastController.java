@@ -15,8 +15,9 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.weathercast.ForecastType;
-import br.com.weathercast.WUrl;
+import br.com.weathercast.dto.CurrentForecast;
 import br.com.weathercast.dto.Forecast;
+import br.com.weathercast.service.WUrl;
 
 @RestController
 @RequestMapping("forecast")
@@ -33,14 +34,14 @@ public class ForecastController extends WeatherController {
 
 	@ResponseBody
 	@GetMapping(path = "/cidade/{nome}")
-	public Forecast cidade(@PathVariable("nome") String nomeCidade)
+	public CurrentForecast cidade(@PathVariable("nome") String nomeCidade)
 			throws JsonParseException, JsonMappingException, IOException {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 //			InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
-			String json = WUrl.start(ForecastType.FORECAST, config.getUrl(), config.getApiKey()).cidade(nomeCidade).search();
-			Forecast clima = mapper.readValue(json, Forecast.class);
-			return clima;
+			String json = WUrl.start(ForecastType.CURRENT, config.getUrl(), config.getApiKey()).cidade(nomeCidade).search();
+			CurrentForecast current = mapper.readValue(json, CurrentForecast.class);
+			return current;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

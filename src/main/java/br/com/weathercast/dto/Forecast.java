@@ -6,11 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @SuppressWarnings("serial")
-@JsonIgnoreProperties({})
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Forecast implements DTO {
 
 	@JsonProperty("cod")
-	private String code;
+	private Integer code;
 
 	@JsonProperty("message")
 	private Double msgCode;

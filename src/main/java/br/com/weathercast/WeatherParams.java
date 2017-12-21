@@ -8,5 +8,7 @@ public class WeatherParams {
 	protected final static String ID = "?id=524901";
 	protected final static String API_KEY = "&APPID=";
 	protected final static String Q = "&q=";
+	protected final static String CNT = "&cnt=";
+	protected final static String LANG = "&lang=";
 
 }

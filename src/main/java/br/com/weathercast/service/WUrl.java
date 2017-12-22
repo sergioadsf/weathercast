@@ -22,6 +22,7 @@ public class WUrl extends WeatherParams {
 			query.append(ID);
 			query.append(API_KEY).append(token);
 			query.append(LANG).append("pt");
+			query.append(UNITS).append("metric");
 		}
 
 		public WQuery cidade(String nome) {

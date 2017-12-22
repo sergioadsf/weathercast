@@ -10,5 +10,6 @@ public class WeatherParams {
 	protected final static String Q = "&q=";
 	protected final static String CNT = "&cnt=";
 	protected final static String LANG = "&lang=";
+	protected final static String UNITS = "&units=";
 
 }

@@ -30,6 +30,13 @@ public class WUrl extends WeatherParams {
 			return this;
 		}
 
+		public WQuery point(String location) {
+			String[] locations = location.split(",");
+			query.append(LAT).append(locations[0]);
+			query.append(LON).append(locations[1]);
+			return this;
+		}
+
 		public WQuery dias(int dias) {
 			query.append(CNT).append(dias);
 			return this;

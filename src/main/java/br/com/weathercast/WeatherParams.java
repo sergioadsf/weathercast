@@ -11,5 +11,7 @@ public class WeatherParams {
 	protected final static String CNT = "&cnt=";
 	protected final static String LANG = "&lang=";
 	protected final static String UNITS = "&units=";
+	protected final static String LAT = "&lat=";
+	protected final static String LON = "&lon=";
 
 }

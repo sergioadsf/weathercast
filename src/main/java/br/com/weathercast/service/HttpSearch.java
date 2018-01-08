@@ -17,7 +17,6 @@ public class HttpSearch {
 		HttpURLConnection connection = initConnection(target);
 		connection.setRequestMethod("GET");
 
-		connection.getInputStream();
 		return inputStreamToString(connection.getInputStream());
 	}
 

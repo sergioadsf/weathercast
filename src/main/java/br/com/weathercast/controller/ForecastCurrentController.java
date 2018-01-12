@@ -24,13 +24,13 @@ import br.com.weathercast.service.WUrl;
 
 @RestController
 @RequestMapping("forecast")
-public class ForecastController extends BaseController {
+public class ForecastCurrentController extends BaseController {
 
 	@ResponseBody
 	@GetMapping(path = "/test")
 	public Forecast getNome() throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
+		InputStream asStream = ForecastCurrentController.class.getResourceAsStream("/weathercast.json");
 		Forecast clima = mapper.readValue(asStream, Forecast.class);
 		return clima;
 	}
@@ -77,7 +77,7 @@ public class ForecastController extends BaseController {
 	@PostMapping(path = "/test/{id}")
 	public Forecast add(@PathVariable long id) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		InputStream asStream = ForecastController.class.getResourceAsStream("/weathercast.json");
+		InputStream asStream = ForecastCurrentController.class.getResourceAsStream("/weathercast.json");
 		Forecast clima = mapper.readValue(asStream, Forecast.class);
 		return clima;
 	}

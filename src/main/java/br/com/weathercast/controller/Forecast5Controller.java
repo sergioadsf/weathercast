@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.weathercast.ForecastType;
-import br.com.weathercast.dto.CurrentForecast;
+import br.com.weathercast.dto.Forecast;
 import br.com.weathercast.dto.Response;
 import br.com.weathercast.service.WUrl;
 
@@ -19,11 +19,11 @@ public class Forecast5Controller extends BaseController {
 
 	@ResponseBody
 	@GetMapping(path = "/cidade/{nome}")
-	public Response<CurrentForecast> cidade(@PathVariable("nome") String nomeCidade) {
+	public Response<Forecast> cidade(@PathVariable("nome") String nomeCidade) {
 		try {
 			String json = WUrl.start(ForecastType.FORECAST, config.getUrl(), config.getApiKey()).cidade(nomeCidade)
 					.search();
-			CurrentForecast current = convert(CurrentForecast.class, json);
+			Forecast current = convert(Forecast.class, json);
 			return success(current);
 		} catch (Exception e) {
 			e.printStackTrace();

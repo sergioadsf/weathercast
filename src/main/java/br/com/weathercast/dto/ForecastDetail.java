@@ -40,4 +40,24 @@ public class ForecastDetail implements DTO {
 		return sb.toString();
 	}
 
+	public Long getDate() {
+		return date;
+	}
+
+	public String getDateStr() {
+		return dateStr;
+	}
+
+	public List<Weather> getWeather() {
+		return weather;
+	}
+
+	public Main getMain() {
+		return main;
+	}
+
+	public Wind getWind() {
+		return wind;
+	}
+
 }

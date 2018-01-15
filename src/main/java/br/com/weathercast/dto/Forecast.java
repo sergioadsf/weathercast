@@ -40,4 +40,14 @@ public class Forecast implements DTO {
 		return sb.toString();
 	}
 
+	public List<ForecastDetail> getListForecast() {
+		return listForecast;
+	}
+
+	public void setListForecast(List<ForecastDetail> listForecast) {
+		this.listForecast = listForecast;
+	}
+	
+	
+
 }

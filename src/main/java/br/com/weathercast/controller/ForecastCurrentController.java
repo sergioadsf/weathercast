@@ -27,7 +27,7 @@ import br.com.weathercast.service.WUrl;
 public class ForecastCurrentController extends BaseController {
 
 	@ResponseBody
-	@GetMapping(path = "/test")
+	@GetMapping(path = "/ping")
 	public Forecast getNome() throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		InputStream asStream = ForecastCurrentController.class.getResourceAsStream("/weathercast.json");
@@ -71,14 +71,5 @@ public class ForecastCurrentController extends BaseController {
 			return fail("Não foi possivel consultar a localização " + location);
 		}
 		
-	}
-
-	@ResponseBody
-	@PostMapping(path = "/test/{id}")
-	public Forecast add(@PathVariable long id) throws JsonParseException, JsonMappingException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		InputStream asStream = ForecastCurrentController.class.getResourceAsStream("/weathercast.json");
-		Forecast clima = mapper.readValue(asStream, Forecast.class);
-		return clima;
 	}
 }
